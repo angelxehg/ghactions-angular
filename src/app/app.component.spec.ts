@@ -20,16 +20,13 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ghactions-angular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('ghactions-angular');
-  });
-
-  it('should render title', () => {
+  it('should render title & description', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ghactions-angular app is running!');
+    const title = compiled.querySelector('#app-title');
+    const descr = compiled.querySelector('#app-descr');
+    expect(title.textContent).toContain('Hola mundo!');
+    expect(descr.textContent).toContain('Esta es una aplicación Angular');
   });
 });
